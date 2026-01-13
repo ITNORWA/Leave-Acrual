@@ -1,0 +1,117 @@
+{
+    "actions": [],
+    "creation": "2024-05-21 10:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "policy_name",
+        "leave_type",
+        "accrual_type",
+        "accrual_rate",
+        "max_annual_entitlement",
+        "column_break_1",
+        "carry_forward",
+        "exclude_weekends",
+        "exclude_holidays",
+        "hr_override_allowed"
+    ],
+    "fields": [
+        {
+            "fieldname": "policy_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Policy Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "leave_type",
+            "fieldtype": "Link",
+            "label": "Leave Type",
+            "options": "Leave Type",
+            "reqd": 1
+        },
+        {
+            "fieldname": "accrual_type",
+            "fieldtype": "Select",
+            "label": "Accrual Type",
+            "options": "Monthly\nQuarterly\nYearly",
+            "reqd": 1,
+            "default": "Monthly"
+        },
+        {
+            "fieldname": "accrual_rate",
+            "fieldtype": "Float",
+            "label": "Accrual Rate (Days per Period)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "max_annual_entitlement",
+            "fieldtype": "Float",
+            "label": "Maximum Annual Entitlement"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "carry_forward",
+            "fieldtype": "Check",
+            "label": "Carry Forward Unused Leave"
+        },
+        {
+            "default": "0",
+            "fieldname": "exclude_weekends",
+            "fieldtype": "Check",
+            "label": "Exclude Weekends from Accrual"
+        },
+        {
+            "default": "0",
+            "fieldname": "exclude_holidays",
+            "fieldtype": "Check",
+            "label": "Exclude Holidays from Accrual"
+        },
+        {
+            "default": "0",
+            "fieldname": "hr_override_allowed",
+            "fieldtype": "Check",
+            "label": "Allow HR Override"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-05-21 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Leave Accrual",
+    "name": "Leave Accrual Policy",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "HR Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

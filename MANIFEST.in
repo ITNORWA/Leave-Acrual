@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include leave_accrual *.css
+recursive-include leave_accrual *.csv
+recursive-include leave_accrual *.html
+recursive-include leave_accrual *.ico
+recursive-include leave_accrual *.js
+recursive-include leave_accrual *.json
+recursive-include leave_accrual *.md
+recursive-include leave_accrual *.png
+recursive-include leave_accrual *.py
+recursive-include leave_accrual *.svg
+recursive-include leave_accrual *.txt
+recursive-exclude leave_accrual *.pyc
