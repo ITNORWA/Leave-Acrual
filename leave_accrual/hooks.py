@@ -40,10 +40,10 @@ doctype_js = {
 
 doc_events = {
 	"Leave Application": {
-        "validate": "leave_accrual.leave_accrual.utils.accrual.validate_leave_application",
-        "before_submit": "leave_accrual.leave_accrual.utils.accrual.validate_leave_application"
+        "validate": "leave_accrual.utils.accrual.validate_leave_application",
+        "before_submit": "leave_accrual.utils.accrual.validate_leave_application"
     },
     "Leave Type": {
-        "on_update": "leave_accrual.leave_accrual.utils.accrual.update_leave_type_settings"
+        "on_update": "leave_accrual.utils.accrual.update_leave_type_settings"
     }
 }

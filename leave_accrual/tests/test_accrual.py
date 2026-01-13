@@ -1,7 +1,7 @@
 import frappe
 from frappe.tests.utils import FrappeTestCase
 from frappe.utils import today, add_months
-from leave_accrual.leave_accrual.utils.accrual import calculate_accrued_leave, get_leave_balance
+from leave_accrual.utils.accrual import calculate_accrued_leave, get_leave_balance
 
 class TestLeaveAccrual(FrappeTestCase):
     def setUp(self):
