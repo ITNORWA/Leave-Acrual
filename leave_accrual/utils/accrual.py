@@ -1,4 +1,5 @@
 import math
+import frappe
 from frappe.utils import getdate, date_diff, flt, nowdate, add_months, month_diff
 
 def get_leave_policy(leave_type):
