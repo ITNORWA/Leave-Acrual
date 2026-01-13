@@ -1,6 +1,11 @@
 import frappe
 from frappe.utils import getdate, date_diff, flt, nowdate
 
+def _round_to_increment(value, increment):
+    if not increment or increment <= 0:
+        return value
+    return round(value / increment) * increment
+
 def get_leave_policy(leave_type):
     return frappe.db.get_value("Leave Accrual Policy", {"leave_type": leave_type}, "*", as_dict=True)
 
@@ -33,10 +38,14 @@ def get_leave_balance(employee, leave_type, as_on_date=None):
     earned = 0.0
     
     if policy.accrual_type == "Monthly":
-        # Pro-rata: Rate per month
-        # Annual = Rate * 12
-        total_annual_allocation = policy.accrual_rate * 12
-        earned = (days_worked / 365.0) * total_annual_allocation
+        # Accrue per completed calendar month within the accrual year.
+        months_elapsed = (
+            (as_on_date.year - accrual_start_date.year) * 12
+            + (as_on_date.month - accrual_start_date.month)
+            + 1
+        )
+        months_elapsed = max(months_elapsed, 0)
+        earned = months_elapsed * policy.accrual_rate
         
     elif policy.accrual_type == "Quarterly":
         total_annual_allocation = policy.accrual_rate * 4
@@ -61,7 +70,9 @@ def get_leave_balance(employee, leave_type, as_on_date=None):
     
     taken = flt(leaves_taken[0][0]) if leaves_taken and leaves_taken[0][0] else 0.0
     
-    return flt(earned - taken, 2)
+    balance = earned - taken
+    balance = _round_to_increment(balance, policy.get("rounding_increment"))
+    return flt(balance, 2)
 
 def validate_leave_application(doc, method):
     if doc.status == "Rejected" or doc.status == "Cancelled":

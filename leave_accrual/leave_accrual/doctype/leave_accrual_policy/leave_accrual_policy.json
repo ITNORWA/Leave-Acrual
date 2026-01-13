@@ -9,6 +9,7 @@
         "accrual_type",
         "accrual_rate",
         "max_annual_entitlement",
+        "rounding_increment",
         "column_break_1",
         "carry_forward",
         "exclude_weekends",
@@ -48,6 +49,11 @@
             "fieldname": "max_annual_entitlement",
             "fieldtype": "Float",
             "label": "Maximum Annual Entitlement"
+        },
+        {
+            "fieldname": "rounding_increment",
+            "fieldtype": "Float",
+            "label": "Rounding Increment (Days)"
         },
         {
             "fieldname": "column_break_1",
