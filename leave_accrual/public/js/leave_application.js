@@ -14,7 +14,7 @@ frappe.ui.form.on('Leave Application', {
         if (!frm.doc.employee || !frm.doc.leave_type) return;
 
         frappe.call({
-            method: "leave_accrual.leave_accrual.utils.accrual.get_leave_balance",
+            method: "leave_accrual.utils.accrual.get_leave_balance",
             args: {
                 employee: frm.doc.employee,
                 leave_type: frm.doc.leave_type

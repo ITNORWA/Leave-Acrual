@@ -1,8 +1,8 @@
 app_name = "leave_accrual"
 app_title = "Leave Accrual Management"
-app_publisher = "Antigravity"
+app_publisher = "Norwa"
 app_description = "Custom Leave Accrual Policy for ERPNext HR"
-app_email = "bot@example.com"
+app_email = "it-department@norwaafrica.com"
 app_license = "MIT"
 
 # Apps
@@ -40,10 +40,11 @@ doctype_js = {
 
 doc_events = {
 	"Leave Application": {
-        "validate": "leave_accrual.leave_accrual.utils.accrual.validate_leave_application",
-        "before_submit": "leave_accrual.leave_accrual.utils.accrual.validate_leave_application"
+        "validate": "leave_accrual.utils.accrual.validate_leave_application",
+        "before_submit": "leave_accrual.utils.accrual.validate_leave_application"
     },
     "Leave Type": {
-        "on_update": "leave_accrual.leave_accrual.utils.accrual.update_leave_type_settings"
+        "on_update": "leave_accrual.utils.accrual.update_leave_type_settings"
     }
 }
+
